@@ -19,6 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:all": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "prettier:check": "prettier -l \"**/*.+(js|css|json)\"",
     "prettier": "prettier --write  \"**/*.+(js|css|json)\""
@@ -44,7 +45,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,json}": "prettier --write"
+    "*.{js,css,json}": "prettier --write",
+    "*.js": "npm run test:all -- --findRelatedTests"
   },
   "prettier": {
     "singleQuote": true
