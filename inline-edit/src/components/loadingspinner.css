@@ -1,0 +1,23 @@
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  position: relative;
+}
+
+.spinner::before {
+  position: absolute;
+  content: '';
+  height: 22px;
+  width: 22px;
+  border: solid 3px #eee;
+  border-bottom-color: #00e1ae;
+  border-radius: 50%;
+  animation: 1s linear infinite spinner;
+}
