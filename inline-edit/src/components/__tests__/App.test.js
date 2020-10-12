@@ -2,9 +2,9 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import App from '../App';
-import mockFakeSubmit from '../utils/fakeSubmit';
+import mockFakeSubmit from '../../utils/fakeSubmit';
 
-jest.mock('../utils/fakeSubmit');
+jest.mock('../../utils/fakeSubmit');
 afterEach(() => jest.clearAllMocks());
 
 const init = 'Hello World';

@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
-import './App.css';
-import StatusIndicator from './components/StatusIndicator';
-import InlineEdit from './components/InlineEdit';
-import fakeSubmit from './utils/fakeSubmit';
+import './app.css';
+import StatusIndicator from './StatusIndicator';
+import InlineEdit from './InlineEdit';
+import fakeSubmit from '../utils/fakeSubmit';
 
 function App() {
   const init = 'Hello World';
