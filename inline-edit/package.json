@@ -19,8 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:all": "react-scripts test --watchAll=false",
+    "test": "react-scripts test --env=jsdom-fourteen",
+    "test:all": "react-scripts test --env=jsdom-fourteen --watchAll=false",
     "eject": "react-scripts eject",
     "prettier:check": "prettier -l \"**/*.+(js|css|json)\"",
     "prettier": "prettier --write  \"**/*.+(js|css|json)\""

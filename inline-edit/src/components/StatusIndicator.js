@@ -4,13 +4,11 @@ import CrossCircled from '../icons/CrossCircled';
 import LoadingSpinner from './LoadingSpinner';
 import VisuallyHidden from './VisuallyHidden';
 
-const StatusIndicator = ({ status }) => {
-  return (
-    <div role="alert" aria-live="assertive">
-      <StatusIcon status={status} />
-    </div>
-  );
-};
+const StatusIndicator = ({ status }) => (
+  <div role="alert" aria-live="assertive">
+    <StatusIcon status={status} />
+  </div>
+);
 
 const StatusIcon = ({ status }) => {
   switch (status) {
