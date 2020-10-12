@@ -11,7 +11,7 @@ const init = 'Hello World';
 const newText = 'thanks for all the fish';
 
 const updateInputValue = () => {
-  const { getByLabelText, getByTestId } = render(<App />);
+  const { getByLabelText, getByTestId, getByText } = render(<App />);
   const input = getByLabelText(/editable text/i);
   expect(input).toHaveValue(init);
 
@@ -20,7 +20,7 @@ const updateInputValue = () => {
   expect(mockFakeSubmit).toHaveBeenCalledWith(newText);
   expect(mockFakeSubmit).toHaveBeenCalledTimes(1);
 
-  return { input, getByTestId };
+  return { input, getByTestId, getByText };
 };
 
 test('text updates when fakeSubmit resolves', async () => {
@@ -35,13 +35,16 @@ test('text updates when fakeSubmit resolves', async () => {
 });
 
 test('text does not update when fakeSubmit rejects', async () => {
-  mockFakeSubmit.mockRejectedValueOnce();
+  mockFakeSubmit.mockRejectedValueOnce({
+    message: 'Oops, something went wrong',
+  });
 
-  const { input, getByTestId } = updateInputValue();
+  const { input, getByTestId, getByText } = updateInputValue();
 
   await waitFor(() => {
     expect(input).toHaveValue(init);
     getByTestId('crosssvg');
+    getByText(/oops, something went wrong/i);
   });
 });
 

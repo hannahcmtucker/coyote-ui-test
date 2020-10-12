@@ -9,12 +9,14 @@ function App() {
   const [value, setValue] = useState(init);
   const [status, setStatus] = useState(null);
   const prevValue = useRef(init);
+  const [errMessage, setErrMessage] = useState(null);
 
   const handleSubmit = async () => {
     // value is unchanged, no need to submit
     if (prevValue.current === value) return;
 
     setStatus('loading');
+    setErrMessage(null);
 
     try {
       await fakeSubmit(value);
@@ -23,6 +25,7 @@ function App() {
     } catch (err) {
       setValue(prevValue.current);
       setStatus('error');
+      setErrMessage(err.message);
     }
   };
 
@@ -33,12 +36,17 @@ function App() {
 
   return (
     <main className="appwrapper">
-      <InlineEdit
-        value={value}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-      <StatusIndicator status={status} />
+      <div className="editwrapper">
+        <InlineEdit
+          value={value}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+        <StatusIndicator status={status} />
+      </div>
+      <div role="alert" aria-live="assertive">
+        {errMessage && <p className="errmessage">{errMessage}</p>}
+      </div>
     </main>
   );
 }
