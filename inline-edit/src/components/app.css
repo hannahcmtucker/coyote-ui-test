@@ -1,6 +1,6 @@
 .appwrapper {
-  margin: 16px;
-  padding: 16px;
+  margin: var(--gutter-medium);
+  padding: var(--gutter-medium);
 }
 
 .editwrapper {
@@ -10,6 +10,6 @@
 
 .errmessage {
   font-size: 0.8rem;
-  margin-left: 8px;
-  color: #dc3545;
+  margin-left: var(--gutter-small);
+  color: var(--color-danger);
 }

@@ -1,6 +1,6 @@
 .inputreset {
-  margin: 0 16px 0 0;
-  padding: 8px;
+  margin: 0 var(--gutter-medium) 0 0;
+  padding: var(--gutter-small);
   border: 0;
   color: inherit;
   font-size: inherit;

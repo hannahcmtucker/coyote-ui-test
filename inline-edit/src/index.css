@@ -8,6 +8,11 @@ body {
 }
 
 html {
+  --color-primary: #00e1ae;
+  --color-border: #eee;
+  --color-danger: #dc3545;
+  --gutter-small: 8px;
+  --gutter-medium: 16px;
   box-sizing: border-box;
 }
 

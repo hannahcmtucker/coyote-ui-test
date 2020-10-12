@@ -9,15 +9,17 @@
 
 .spinner {
   position: relative;
+  --spinner-size: 22px;
 }
 
 .spinner::before {
   position: absolute;
   content: '';
-  height: 22px;
-  width: 22px;
-  border: solid 3px #eee;
-  border-bottom-color: #00e1ae;
+  top: calc(-1 * (var(--spinner-size) / 2));
+  height: var(--spinner-size);
+  width: var(--spinner-size);
+  border: solid 3px var(--color-border);
+  border-bottom-color: var(--color-primary);
   border-radius: 50%;
   animation: 1s linear infinite spinner;
 }
